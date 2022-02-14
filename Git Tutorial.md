@@ -9,6 +9,7 @@ In this tutorial you will learn how to use basic git commands. If you're curious
 1. **Opening git bash**
 The git command line can be accessed from opening the git bash program. Uponing opening git bash, you should be greeted with a screen like this: <br>
 ![](images/git_bash_screen.png)
+<br>
 **This is where all git commands will be typed.**
 <br>
 
@@ -24,6 +25,7 @@ Type in the command line `git clone paste_repo_link_here`. The `git clone` comma
 3. **Make the quiz game file**
 We will now start with making the file for our quiz game. Type in the command line `touch quiz_game.py`. The `touch` command is an UNIX command on the terminal that creates files. To check we've created our quiz game file, we type `ls` (another UNIX command) on the command line. You should then see the python file we created for our quiz game:
 ![](images/touch_ls.png)
+<br>
 
 Open the **quiz_game.py** file on your local machine and add the following code:<br>
 ```python
@@ -73,8 +75,6 @@ print("Bye!")
 ```
 <br>
 
-<br>
-
 <Center>The next set of git commands we will use is standard for reflecting code changes on our local machine to the github repo</Center>
 
 4. **git add**
@@ -95,9 +95,11 @@ The *git commit* command can be thought of as the confirmation of files we've ad
 6. **git push**
 Now we use the *git push* command. Type `git push origin main`: <br>
 ![](images/git_push_origin_main.png)
+<br>
 
-The *git push* command can be thought of as the official transmission of file additions and/or file changes to our github repo. You should now see **quiz_game.py** in your github repo:
+The *git push* command can be thought of as the official transmission of file additions and/or file changes to our github repo. You should now see **quiz_game.py** in your github repo:<br>
 ![](images/github_first_push.png)
+<br>
 
 You can also see the code in the file when you click on it:
 ![](images/github_first_push_quiz_game_code.png)
@@ -108,12 +110,14 @@ You can also see the code in the file when you click on it:
 <Center>Now if we run our code we see that it doesn't display a score</Center>:<br>
 
 ![](images/github_first_push_quiz_game_run_code.png)
+<br>
 
 <Center>Lets spruce up our project a bit by adding a score feature. We can accomplish this using the *git branch* command and *git merge* command</Center>
 
 **Branches**
-You may have noticed the `(main)` in cyan after our directory path in the command terminal:
+You may have noticed the `(main)` in cyan after our directory path in the command terminal:<br>
 ![](images/main_cyan.png)
+<br>
 This is called our *main branch*. In fact, you've been working on the *main branch* so far of where our project code is. The convention in working with repositories is that they all have a *main branch* i.e the main code of a software/program. This *main branch* was formed from the *git clone* command.
 
 A common practice in building a software/program is adding features to the main code. However, common practice in adding these features is to create a *branch*. A *branch* can be thought of as a copy of the main code, which we can add the code changes for a feature we want. This is beneficial because if adding our feature can create bugs or mess up our main code, then we can rest assure knowing these problems aren't happening on the real main code (i.e *main branch*).
