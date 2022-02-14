@@ -1,5 +1,5 @@
 
-**Welcome to the Git Tutorial**
+**Welcome to the Git Tutorial - by Anthony Vasquez**
 
 <p style="text-align: center;">
 In this tutorial you will learn how to use basic git commands. If you're curious about the benefits of git, I recommend reading this <a href="https://medium.com/swlh/git-as-the-newbies-learning-steroid-963a2146220b">article</a>. Our project will be a basic quiz game to implement our git commands on
