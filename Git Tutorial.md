@@ -18,7 +18,7 @@ Go to the Github repo and copy the link shown under -*HTTPS*-:
 ![](images/repo_link.png)
 <br>
 
-Type in the command line `git clone paste_repo_link_here`. The `git clone` command will pull the repo and all files associated with it as a *directory* on your local machine. This directory will have the same name as the repository name. Next, use the `cd` command to traverse into the directory. Your command line should now look like this:
+Type in the command line `git clone paste_repo_link_here`. The `git clone` command will pull the repo and all files associated with it as a *directory* on your local machine. This directory will have the same name as the repository name. Next, use the `cd` command to traverse into the directory. Your command line should now look like this:<br>
 ![](images/git_clone.png)
 <br>
 
@@ -134,8 +134,9 @@ Even though we are still in the *main branch* as indicated by `(main)`, we can c
 The `git branch --list` command lists out all branches, including *main*, that we have. The current branch we are in is also indicated by an asteriks `*` next to the branch name listed.
 
 8. **git checkout**
-Now that we've made our *score-feature branch*, we can move from the *main branch* to the *score-feature branch* by typing`git checkout score-feature`:
+Now that we've made our *score-feature branch*, we can move from the *main branch* to the *score-feature branch* by typing`git checkout score-feature`:<br>
 ![](images/git_checkout_score_feature.png)
+<br>
 
 You will know you have switched branches if you now see `(score-feature)` in cyan next to your directory path, as well as a message saying *"Switched to branch score-feature"*.
 The `git checkout` command is used to switch between branches using branch names.
@@ -207,41 +208,49 @@ print("Bye!")
 ```
 <br> The only code additions we made are the `display_score()` function and calling it in the `new_game()` function
 
-But wait a second, we have a little bug here in putting in our score feature:
+But wait a second, we have a little bug here in putting in our score feature:<br>
 ![](images/score_feature_bug.png)
+<br>
 
 Instead of showing all our guesses, it has showed only the last guess from our `guess` variable in the `new_game()` function. Imagine if we were still on the *main branch* (i.e the main code) and we add our code for the score feature with this bug. Good thing on the *score-feature branch* we are working with a copy of the main code to test our feature on.
 
 We can simply fix this by changing the input name from `guess` to `guesses` from calling the `display_score()` function in the `new_game()` function: `display_score(correct_guesses, guesses)`.
 
-Now it seems our score feature works as intended:
+Now it seems our score feature works as intended:<br>
 ![](images/score_feature_debug.png)
+<br>
 
 10. **git merge**
-With our confidence in the score feature working, we would like to incorporate this feature back onto the main code. While we are still in the `score-feature` branch, we will use the `git add` and `git commit` commands first:
+With our confidence in the score feature working, we would like to incorporate this feature back onto the main code. While we are still in the `score-feature` branch, we will use the `git add` and `git commit` commands first:<br>
 ![](images/git_commit_score_feature_branch.png)
+<br>
 
 The reason we do these two commands first is because we are looking to make these code changes official for our main branch.
 Now we are going to use the `git merge` command to take these official code changes in the `score-feature branch` and *merge* them with the main code in `main branch`.
-To do this we must first be in the `main branch`. Type `git checkout main` to switch to the *main branch*:
+To do this we must first be in the `main branch`. Type `git checkout main` to switch to the *main branch*:<br>
 ![](images/git_checkout_score_feature_to_main.png)
+<br>
 
-Now type `git merge score-feature`:
+Now type `git merge score-feature`:<br>
 ![](images/git_merge_score_feature_to_main.png)
+<br>
 
 You will have done a successful merge if your command message looks like the above.
 <br>
 
-And just like before, we can finally do the `git push` command to update our github repo with the score feature code. But instead type in exactly this command `git push`:
+And just like before, we can finally do the `git push` command to update our github repo with the score feature code. But instead type in exactly this command `git push`:<br>
 ![](images/git_push_score_feature_wo_args.png)
+<br>
 
 You'll notice that the `git push` command we wrote here *does not* contain the `origin main` after the git command. This is because since we are on the `main branch`, git will automatically push to the `main branch` for you. However, this is *not* good practice of writing the `git push` command.
 
-Nevertheless, you should see the commit message next to the Python file on your github repo:
+Nevertheless, you should see the commit message next to the Python file on your github repo:<br>
 ![](images/github_repo_score_feature_commit_message.png)
+<br>
 
-And you'll even see the code for the score feature if you click on the file:
+And you'll even see the code for the score feature if you click on the file:<br>
 ![](images/github_repo_score_feature_code.png)
+<br>
 
 <Center>Congrats! You added a score feature to your quiz game with the `git branch` and `git merge` commands</Center>
 
