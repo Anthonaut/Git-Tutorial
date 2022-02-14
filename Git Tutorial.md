@@ -10,7 +10,9 @@ In this tutorial you will learn how to use basic git commands. If you're curious
 The git command line can be accessed from opening the git bash program. Uponing opening git bash, you should be greeted with a screen like this: <br>
 ![](images/git_bash_screen.png)
 <br>
+
 **This is where all git commands will be typed.**
+
 <br>
 
 2. **git clone**
