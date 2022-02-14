@@ -257,7 +257,6 @@ And you'll even see the code for the score feature if you click on the file:<br>
 **Merging**
 You just did a merge in git with the score feature, but it's also important to what merges you can run into.
 * *Fast forward* - The *git merge* you've performed above is called a *Fast-forward merge*. Simply put, because we *did not change* our main code since creating the `score-feature branch` to work on, we are "fast forwarding" these changes onto the main branch as if we did actually make these code changes to the `main branch` to start with.
-<br>
 
 * *Recursive-strategy* - This *git merge* occurs if we *did change* the main code since creating another branch (to make another feature) and merging it back into the `main branch`. An easy scenario of when this occurs is if you make two branches at the same time - i.e `feature-a branch` and `feature-b branch` - and try to merge both of them back onto the `main branch`. For our quiz game, you can imagine if we made another branch, such as `play-again-feature branch` at the same time as our `score-feature branch` and tried to merge both of these branches back to our `main branch`.
 
@@ -266,10 +265,12 @@ We've learned how to make branches and merge them if we have features in mind fo
 
 This command is helpful because if you are working on different branches, you can consider *stashing* as a temporary save button. Without stashing, you would probably have to save the code changes on another file, which is tedious in the workflow of a project.
 
-Let's consider using this for a *answer time feature*, where we display the average time it took for the user to answer a question. Note that this is just a *rough draft* we're thinking of implementing such a feature. It's not entirely set in stone.
+Let's consider using this for a *play again feature*, where we can ask the user if they would like to play the quiz game again.
 
 11. **git stash**
-Because we are making looking to add a feature, we'll follow the same steps of creating a branch called `answer-time-feature` and switching to it:
+Because we are looking to add a feature, we'll follow the same steps of creating a branch called `play-again-feature` and switching to it:<br>
+![](images/git_checkout_play_again_feature.png)
+<br>
 
 
 Open the **quiz_game.py** file and make the following code changes:
@@ -319,6 +320,16 @@ def display_score(correct_guesses, guesses):
     score = (correct_guesses / len(questions)) * 100 # Score as a percentage
     print("Your score is: " + str(score) + "%")
 # --------------------
+def play_again(): # If player wants to play again
+    response = input("Do you want to play again? (yes or no): ")
+    response = response.upper()
+
+    if response == 'YES':
+        return True # True, so we stay in the while loop
+    else:
+        return False # False, so we break out of the while loop
+# --------------------
+
 questions = { # A dictionary works to hold a question:answer pair (key:value)
     "Who created Python?": "A",
     "What year was Python created?": "B",
@@ -334,6 +345,50 @@ options = [["A. Guido van Rossum", "B. Elon Musk", "C. Bill Gates", "D. Mark Zuc
 
 new_game()
 
+while play_again() == True: # If play_again() returns back True, start another quiz game
+    new_game()
+
 print("Bye!")
 ```
 We've simpled created a `play_again()` function and implemented it as a while loop before the `print("Bye!")` statement.
+
+Now we just implemented said *play again feature*, but maybe we aren't exactly sure if this is how we would like to implement it.
+
+To know the feature worked, open **quiz_game.py** in your code editor and take note of the code for the *play again feature* we just added:<br>
+![](images/git_stash_play_again_before.png)
+<br>
+
+Now since we want to save this "rough draft" of the feature, we'll now use the `git stash` command. Type `git stash`:<br>
+![](images/git_stash_command_play_again.png)
+<br>
+
+If you open **quiz_game.py** again, you'll notice that the same code we added is now gone:<br>
+![](images/git_stash_play_again_after.png)
+<br>
+**Magic!**
+
+We can even check with the command line `git stash` worked. Type `git stash list`:
+![](images/git_stash_list_play_again.png)
+<br>
+
+As you can see, `git stash list` shows all the code changes git has temporarily stored. It is identified by the line where `stash{0}...` is.
+Each set of code changes you stash is indexed by the `stash{followed_by_a_number}...`. It's important to note that the *way* git stores your code changes in the stash is in a *stack*. By default, whatever code change you *last stashed* will be the *first code change* you can access back.
+
+So we just decided that our rough draft of the play again feature was fine as is and would like to get the code for it back from the stash. To do so type `git stash apply`:<br>
+![](images/git_stash_apply_play_again.png)
+<br>
+
+As you can see, our code for our play again feature is back from using the command above.
+Since we are looking to update our github repo with the play again feature, we will merge the `play-again-feature branch` to the `main branch`.
+Similarly to before, we will do the sequence of `git add`, `git commit`, `git merge` and `git push commands`:<br>
+![](images/github_update_repo_play_again.png)
+<br>
+
+And if you check again on github, you'll see the commit message and code change for the play again feature:<br>
+![](images/github_repo_commit_message_play_again.png)
+<br>
+
+![](images/github_repo_play_again_code.png)
+<br>
+
+Congrats! You used the `git stash` command on our play again feature for our quiz game.
