@@ -90,14 +90,14 @@ The next step is using the *git commit* command. Type `git commit -m "Added quiz
 ![](images/git_commit_quiz_game_py.png)
 <br>
 
-The *git commit* command can be thought of as the confirmation of files we've added/changed in the *staging area* to send to our github repo.
+The `git commit` command can be thought of as the confirmation of files we've added/changed in the *staging area* to send to our github repo.
 
 6. **git push**
-Now we use the *git push* command. Type `git push origin main`: <br>
+Now we use the `git push` command. Type `git push origin main`: <br>
 ![](images/git_push_origin_main.png)
 <br>
 
-The *git push* command can be thought of as the official transmission of file additions and/or file changes to our github repo. You should now see **quiz_game.py** in your github repo:<br>
+The `git push` command can be thought of as the official transmission of file additions and/or file changes to our github repo. You should now see **quiz_game.py** in your github repo:<br>
 ![](images/github_first_push.png)
 <br>
 
@@ -109,10 +109,12 @@ You can also see the code in the file when you click on it:
 <br>
 <Center>Now if we run our code we see that it doesn't display a score</Center>:<br>
 
-![](images/github_first_push_quiz_game_run_code.png)
+<p align="center">
+  <img src="images/github_first_push_quiz_game_run_code.png">
+</p>
 <br>
 
-<Center>Lets spruce up our project a bit by adding a score feature. We can accomplish this using the *git branch* command and *git merge* command</Center>
+Lets spruce up our project a bit by adding a score feature. We can accomplish this using the `git branch` command and `git merge` command
 
 **Branches**
 You may have noticed the `(main)` in cyan after our directory path in the command terminal:<br>
@@ -209,7 +211,9 @@ print("Bye!")
 <br> The only code additions we made are the `display_score()` function and calling it in the `new_game()` function
 
 But wait a second, we have a little bug here in putting in our score feature:<br>
-![](images/score_feature_bug.png)
+<p align="center">
+  <img src="images/score_feature_bug.png">
+</p>
 <br>
 
 Instead of showing all our guesses, it has showed only the last guess from our `guess` variable in the `new_game()` function. Imagine if we were still on the *main branch* (i.e the main code) and we add our code for the score feature with this bug. Good thing on the *score-feature branch* we are working with a copy of the main code to test our feature on.
@@ -217,7 +221,9 @@ Instead of showing all our guesses, it has showed only the last guess from our `
 We can simply fix this by changing the input name from `guess` to `guesses` from calling the `display_score()` function in the `new_game()` function: `display_score(correct_guesses, guesses)`.
 
 Now it seems our score feature works as intended:<br>
-![](images/score_feature_debug.png)
+<p align="center">
+  <img src="images/score_feature_debug.png">
+</p>
 <br>
 
 10. **git merge**
@@ -352,9 +358,9 @@ print("Bye!")
 ```
 We've simpled created a `play_again()` function and implemented it as a while loop before the `print("Bye!")` statement.
 
-Now we just implemented said *play again feature*, but maybe we aren't exactly sure if this is how we would like to implement it.
+Now we just implemented said play again feature, but maybe we aren't exactly sure if this is how we would like to implement it.
 
-To know the feature worked, open **quiz_game.py** in your code editor and take note of the code for the *play again feature* we just added:<br>
+To know the feature worked, open **quiz_game.py** in your code editor and take note of the code for the play again feature we just added:<br>
 ![](images/git_stash_play_again_before.png)
 <br>
 
@@ -391,4 +397,11 @@ And if you check again on github, you'll see the commit message and code change 
 ![](images/github_repo_play_again_code.png)
 <br>
 
-Congrats! You used the `git stash` command on our play again feature for our quiz game.
+Good job! You used the `git stash` command on our play again feature for our quiz game.
+<br>
+
+<p align="center">
+  <img src="images/congrats.png">
+</p>
+
+<Center>You have officially learned the basics of some git commands that you can now apply to your own project. There are of course more to git commands that must be learned, but knowing the basic commands puts you at a good start to continue learning them.</Center>
